@@ -17,6 +17,11 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,248,233,.96);backdro
 footer{background:var(--ink);color:white;padding:30px 22px}.footer-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-inner p{color:#d0c8c2;font-size:12px}.cart-pill{position:fixed;right:20px;bottom:20px;z-index:20;background:var(--red);color:white;border:3px solid var(--ink);border-radius:999px;padding:13px 18px;font-weight:1000;box-shadow:4px 4px 0 var(--ink);display:none}.cart-pill.show{display:block}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:white;padding:12px 18px;border-radius:10px;z-index:30;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:850px){.navlinks{display:none}.hero-inner{grid-template-columns:1fr;padding-top:55px}.hero-art{min-height:270px}.sun{width:240px;height:240px}.big-pastel{font-size:145px;width:300px}.menu-grid{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:14px}.combo-inner{grid-template-columns:1fr}.combo-art{min-height:210px}.order-box{grid-template-columns:1fr}}
 @media(max-width:480px){.nav{padding:12px 15px}.brand{font-size:14px}.brand-logo{width:165px;max-height:58px}.nav-cta{padding:11px 13px;font-size:12px}.hero-inner{padding:48px 18px}.hero p{font-size:16px}h1{letter-spacing:-3px}.hero-art{min-height:230px}.sun{width:205px;height:205px}.big-pastel{font-size:125px;width:250px}.burst{width:86px;height:86px;font-size:11px}.burst b{font-size:18px}section{padding:58px 17px}.menu-grid{gap:12px}.food-art{height:120px;font-size:65px}.food-info{padding:13px}.food-info h3{font-size:16px}.food-info p{font-size:12px}.price{font-size:17px}.about-grid{grid-template-columns:1fr}.order-box{padding:20px}.order h2{font-size:34px}}
+
+/* Sacola e checkout */
+.cart-overlay{position:fixed;inset:0;background:rgba(18,15,13,.72);z-index:100;display:none;align-items:flex-start;justify-content:flex-end;padding:14px;overflow:auto}.cart-overlay.open{display:flex}.cart-modal{background:var(--cream);border:3px solid var(--ink);border-radius:22px;width:min(100%,520px);max-height:calc(100vh - 28px);overflow:auto;padding:24px;box-shadow:8px 8px 0 rgba(0,0,0,.25)}.cart-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.cart-head h2{font-size:clamp(28px,5vw,38px);letter-spacing:-1.5px;margin:6px 0 20px}.close-cart{border:2px solid var(--ink);background:var(--yellow);border-radius:50%;width:42px;height:42px;font-size:27px;font-weight:900;line-height:1}.cart-items{display:grid;gap:10px}.empty-cart{background:#fff;border:2px dashed #d7c8b2;border-radius:12px;padding:20px;text-align:center;color:var(--muted)}.cart-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px;background:#fff;border:1px solid #e5d9c7;border-radius:12px}.cart-row-info{display:grid;gap:5px}.cart-row-info span{font-size:13px;color:var(--muted)}.qty-controls{display:flex;align-items:center;gap:10px}.qty-controls button{width:32px;height:32px;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);font-size:20px;font-weight:900}.cart-total{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:2px solid var(--ink);padding-top:16px;margin-top:18px;font-size:17px}.cart-total strong{font-size:21px;text-align:right}.checkout-form{display:grid;gap:12px;margin-top:20px}.checkout-form label{display:grid;gap:6px;font-size:13px;font-weight:900}.checkout-form input,.checkout-form textarea,.checkout-form select{width:100%;padding:12px;border:2px solid #ddd0bd;border-radius:10px;background:white;font:inherit;font-weight:400}.checkout-submit{width:100%;margin-top:4px}.order-how{display:grid;gap:16px;align-content:center}.order-how>div{display:grid;grid-template-columns:34px 1fr;column-gap:10px;align-items:start;font-size:20px}.order-how strong{font-size:16px}.order-how span{grid-column:2;color:var(--muted);font-size:13px;line-height:1.5;margin-top:3px}.order-how .btn{margin-top:8px}.cart-open{overflow:hidden}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #32754b;outline-offset:3px}
+@media(max-width:480px){.cart-overlay{padding:7px}.cart-modal{max-height:calc(100vh - 14px);padding:17px;border-radius:16px}.cart-row{align-items:flex-start}.cart-total{font-size:15px}.cart-total strong{font-size:17px}}
+
 </style>
 </head>
 <body>
@@ -54,9 +59,9 @@ footer{background:var(--ink);color:white;padding:30px 22px}.footer-inner{max-wid
     <p class="smallprint" style="margin-top:22px">*Preços ilustrativos do projeto. Confirme valores, disponibilidade e sabores antes de publicar o site.</p>
   </div>
 </section>
-<section class="combo" id="combo"><div class="combo-inner"><div><span class="kicker">COMBO DA CASA</span><h2>O encontro que<br>faz sentido.</h2><p>Um pastel tradicional + caldo de cana de 300 ml. Dupla perfeita pra matar a fome sem enrolação.</p><div class="combo-price">R$ 25,00</div><br><a class="btn dark" href="#pedido">Quero esse combo →</a></div><div class="combo-art">🥟 + 🥤</div></div></section>
+<section class="combo" id="combo"><div class="combo-inner"><div><span class="kicker">COMBO DA CASA</span><h2>O encontro que<br>faz sentido.</h2><p>Um pastel tradicional + caldo de cana de 300 ml. Dupla perfeita pra matar a fome sem enrolação.</p><div class="combo-price">R$ 25,00</div><br><a class="btn dark" href="#cardapio">Escolher meu pedido →</a></div><div class="combo-art">🥟 + 🥤</div></div></section>
 <section id="sobre"><div class="container"><div class="section-head"><div><span class="kicker">NOSSA VIBE</span><h2>Mais que pastel.<br>É personalidade.</h2></div><p>Uma pastelaria com sabor, humor e agilidade. A gente acredita que comida boa também tem que ser divertida.</p></div><div class="about-grid"><article class="about-card"><div class="icon">✨</div><h3>Crocância de respeito</h3><p>Pastéis dourados, sequinhos e com recheio bem distribuído — do jeito que tem que ser.</p></article><article class="about-card"><div class="icon">💚</div><h3>Caldo na hora</h3><p>Caldo de cana fresquinho para acompanhar seu pastel e deixar o combo completo.</p></article><article class="about-card"><div class="icon">🤪</div><h3>Loko no nome, sério no sabor</h3><p>Uma marca divertida, atendimento direto e vontade de fazer você voltar.</p></article></div></div></section>
-<section class="order" id="pedido"><div class="container"><div class="order-box"><div><span class="kicker">BORA PEDIR?</span><h2>Seu próximo pastel tá aqui.</h2><p>Monte uma mensagem com seu pedido. O botão abre o WhatsApp para você enviar — só falta configurar o número oficial da pastelaria no código.</p><p>📍 Endereço: <strong>adicione o endereço da pastelaria</strong><br>🕒 Horário: <strong>adicione os dias e horários</strong></p><p class="smallprint">Este é um modelo de site. Ainda não está conectado a um sistema de pedidos.</p></div><form class="order-form" id="orderForm"><input id="customerName" type="text" placeholder="Seu nome" required><select id="pickup"><option value="Retirada no local">Retirada no local</option><option value="Entrega (consultar disponibilidade)">Entrega (consultar disponibilidade)</option></select><textarea id="details" placeholder="Seu pedido (ex.: 2 pastéis de flango e 1 caldo)" required></textarea><button class="btn" type="submit">Enviar pedido pelo WhatsApp ↗</button><span class="smallprint">Antes de publicar, substitua o número de exemplo pelo WhatsApp real.</span></form></div></div></section>
+<section class="order" id="pedido"><div class="container"><div class="order-box"><div><span class="kicker">BORA PEDIR?</span><h2>Seu próximo pastel tá aqui.</h2><p>Escolha seus produtos no cardápio, adicione à sacola e revise quantidades, entrega e forma de pagamento antes de enviar.</p><p>📍 Endereço: <strong>adicione o endereço da pastelaria</strong><br>🕒 Horário: <strong>adicione os dias e horários</strong></p><p class="smallprint">Site demonstrativo. Confirme preços, endereço, horário, taxa de entrega e chave Pix antes de publicar.</p></div><div class="order-how"><div>🛒 <strong>1. Monte sua sacola</strong><span>Adicione itens e ajuste quantidades.</span></div><div>💳 <strong>2. Escolha como pagar</strong><span>Pix, dinheiro ou cartão na entrega/retirada.</span></div><div>📲 <strong>3. Envie para confirmar</strong><span>O pedido será aberto no WhatsApp da loja.</span></div><button class="btn" id="openCartFromOrder" type="button">Abrir minha sacola</button></div></div></div></section>
 </main>
 
 <section id="qr-site" style="background:#fff8e9;padding:54px 22px">
@@ -70,14 +75,62 @@ footer{background:var(--ink);color:white;padding:30px 22px}.footer-inner{max-wid
   </div>
 </section>
 
+
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+  <section class="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-head"><div><span class="kicker">SEU PEDIDO</span><h2 id="cartTitle">Sacola do Flango</h2></div><button class="close-cart" id="closeCart" aria-label="Fechar sacola">×</button></div>
+    <div id="cartItems" class="cart-items"><p class="empty-cart">Sua sacola está vazia. Adicione algo gostoso do cardápio!</p></div>
+    <div class="cart-total"><span>Total estimado</span><strong id="cartTotal">R$ 0,00</strong></div>
+    <p class="smallprint" id="priceNotice">O valor de itens “a consultar” será confirmado pela pastelaria.</p>
+    <form id="checkoutForm" class="checkout-form">
+      <label>Seu nome<input id="checkoutName" required maxlength="80" placeholder="Como podemos te chamar?"></label>
+      <label>Receber pedido<select id="deliveryType"><option value="Retirada no local">Retirada no local</option><option value="Entrega (confirmar disponibilidade e taxa)">Entrega (consultar disponibilidade)</option></select></label>
+      <label>Forma de pagamento<select id="paymentMethod"><option value="Pix (confirmar chave com a loja)">Pix</option><option value="Dinheiro">Dinheiro</option><option value="Cartão na entrega/retirada">Cartão na entrega/retirada</option></select></label>
+      <label id="changeWrap" hidden>Precisa de troco para quanto? (opcional)<input id="changeFor" placeholder="Ex.: R$ 50,00"></label>
+      <label>Observações (opcional)<textarea id="checkoutNotes" rows="2" placeholder="Sabores, endereço para entrega ou alguma observação"></textarea></label>
+      <button class="btn checkout-submit" type="submit">Revisar pedido no WhatsApp ↗</button>
+      <p class="smallprint">Pedido demonstrativo: o envio depende de configurar o WhatsApp oficial. Nenhum pagamento é cobrado neste site.</p>
+    </form>
+  </section>
+</div>
+
 <footer><div class="footer-inner"><a class="brand" href="#inicio"><img class="brand-logo" src="logo-pastel-flango-loko.png" alt="Logo Pastel do Flango Loko"></a><p>© <span id="year"></span> Pastel do Flango Loko · Feito com fome e personalidade.</p></div></footer>
 <button class="cart-pill" id="cartButton">🛒 Pedido (<span id="cartCount">0</span>)</button><div class="toast" id="toast" role="status">Adicionado ao pedido!</div>
 <script>
-const cart=[];const count=document.getElementById('cartCount');const cartButton=document.getElementById('cartButton');const toast=document.getElementById('toast');
-document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>{cart.push({item:btn.dataset.item,price:Number(btn.dataset.price)});count.textContent=cart.length;cartButton.classList.add('show');toast.textContent=btn.dataset.item+' adicionado ao pedido!';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800);}));
-cartButton.addEventListener('click',()=>{document.getElementById('details').value=cart.map(x=>x.item+(x.price?' — R$ '+x.price.toFixed(2).replace('.',','):' — preço a consultar')).join('\\n');document.getElementById('pedido').scrollIntoView({behavior:'smooth'});});
-document.getElementById('orderForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('customerName').value.trim();const pickup=document.getElementById('pickup').value;const details=document.getElementById('details').value.trim();const phone='5511999999999'; // TROQUE pelo WhatsApp oficial, com código do país e DDD.const message=`Olá, Pastel do Flango Loko! Meu nome é ${name}.\\nPedido: ${details}\\nPreferência: ${pickup}.\\nPode confirmar disponibilidade e valor total?`;if(phone==='5511999999999'){alert('Quase lá! Para ativar o envio, substitua o número de exemplo pelo WhatsApp oficial da pastelaria no código do site.\\n\\nMensagem preparada:\\n'+message);return;}window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,'_blank','noopener');});
-document.getElementById('year').textContent=new Date().getFullYear();
+const WHATSAPP_NUMBER = '5511999999999'; // TROQUE pelo número oficial, com país + DDD, somente números.
+const cart = new Map();
+const $ = (id) => document.getElementById(id);
+const overlay = $('cartOverlay');
+const toast = $('toast');
+const money = (n) => n.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
+const products = {
+  'Pastel tradicional': {price:15},
+  'Pastel especial': {price:30},
+  'Pastel doce': {price:33.5},
+  'Caldo de cana': {price:null}
+};
+function showToast(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),1800)}
+function openCart(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('cart-open');renderCart();$('closeCart').focus()}
+function closeCart(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('cart-open')}
+function addItem(name){const product=products[name];if(!product)return;const old=cart.get(name);cart.set(name,{name,price:product.price,qty:(old?.qty||0)+1});renderCart();showToast(name+' adicionado à sacola!')}
+function changeQty(name,delta){const item=cart.get(name);if(!item)return;item.qty+=delta;if(item.qty<=0)cart.delete(name);renderCart()}
+function renderCart(){
+  const entries=[...cart.values()];const count=entries.reduce((sum,item)=>sum+item.qty,0);
+  $('cartCount').textContent=count;$('cartButton').classList.toggle('show',count>0);
+  $('cartItems').innerHTML='';
+  if(!entries.length){$('cartItems').innerHTML='<p class="empty-cart">Sua sacola está vazia. Adicione algo gostoso do cardápio!</p>'}
+  entries.forEach(item=>{const row=document.createElement('div');row.className='cart-row';const info=document.createElement('div');info.className='cart-row-info';const title=document.createElement('strong');title.textContent=item.name;const price=document.createElement('span');price.textContent=item.price===null?'Preço a confirmar: '+item.qty+' un.':money(item.price*item.qty);info.append(title,price);const controls=document.createElement('div');controls.className='qty-controls';const minus=document.createElement('button');minus.type='button';minus.textContent='−';minus.setAttribute('aria-label','Remover uma unidade de '+item.name);minus.onclick=()=>changeQty(item.name,-1);const qty=document.createElement('b');qty.textContent=item.qty;const plus=document.createElement('button');plus.type='button';plus.textContent='+';plus.setAttribute('aria-label','Adicionar uma unidade de '+item.name);plus.onclick=()=>changeQty(item.name,1);controls.append(minus,qty,plus);row.append(info,controls);$('cartItems').append(row)});
+  const total=entries.reduce((sum,item)=>sum+(item.price||0)*item.qty,0);$('cartTotal').textContent=money(total)+(entries.some(item=>item.price===null)?' + itens a confirmar':'');
+  $('priceNotice').textContent=entries.some(item=>item.price===null)?'O caldo de cana está com preço a consultar; a loja confirmará o valor antes de concluir.':'Confira o total estimado. Taxa de entrega, se houver, será confirmada pela loja.';
+}
+document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>addItem(btn.dataset.item)));
+$('cartButton').addEventListener('click',openCart);$('openCartFromOrder').addEventListener('click',openCart);$('closeCart').addEventListener('click',closeCart);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeCart()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeCart()});
+$('paymentMethod').addEventListener('change',()=>{$('changeWrap').hidden=$('paymentMethod').value!=='Dinheiro'});
+$('checkoutForm').addEventListener('submit',e=>{e.preventDefault();const entries=[...cart.values()];if(!entries.length){showToast('Adicione pelo menos um item à sacola.');return}const name=$('checkoutName').value.trim();if(!name)return;const lines=entries.map(i=>`• ${i.qty}x ${i.name} — ${i.price===null?'preço a confirmar':money(i.price*i.qty)}`);const total=entries.reduce((sum,i)=>sum+(i.price||0)*i.qty,0);const unknown=entries.some(i=>i.price===null);const message=[`Olá, Pastel do Flango Loko! Meu nome é ${name}.`,'', 'Meu pedido:',...lines,'',`Total estimado: ${money(total)}${unknown?' + itens a confirmar':''}`,`Recebimento: ${$('deliveryType').value}`,`Pagamento: ${$('paymentMethod').value}`,($('paymentMethod').value==='Dinheiro'&&$('changeFor').value.trim()?`Troco para: ${$('changeFor').value.trim()}`:''),($('checkoutNotes').value.trim()?`Observações/endereço: ${$('checkoutNotes').value.trim()}`:''),'Por favor, confirme disponibilidade, valor final e instruções de pagamento.'].filter(Boolean).join('\n');
+  if(WHATSAPP_NUMBER==='5511999999999'){alert('O pedido está montado, mas falta configurar o WhatsApp oficial da loja no código.\n\nMensagem preparada:\n'+message);return}window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank','noopener,noreferrer');
+});
+$('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
